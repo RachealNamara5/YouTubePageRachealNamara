@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/screens/home_screen.dart';
-
-
+//import 'package:flutter_application_1/screens/home_screen.dart';
+// ignore: unused_import
+import 'package:flutter_application_1/screens/column_layout.dart';
 
 void main() {
   runApp(const MyApp());
 }
+
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -34,11 +36,10 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HomeScreen(),
+      debugShowCheckedModeBanner: false, // Disable the debug banner
+      //home: const HomeScreen(),
+      home: const ColumnLayout(),
     );
-
-  
-
   }
 }
 

@@ -11,7 +11,6 @@ class HomeScreen extends StatelessWidget {
         title: const Text(
           "Flutter Basics",
           style: TextStyle(color: Colors.white),
-          
         ),
         backgroundColor: Colors.black,
       ),
@@ -21,9 +20,16 @@ class HomeScreen extends StatelessWidget {
           children: [
             // Network image with border radius
             ClipRRect(
-              borderRadius: BorderRadius.circular(100.0), // Circular border radius
+              borderRadius: BorderRadius.circular(100.0), // Circular border
+              // child: Image.asset(
+              //   'assets/images/hope_this.JPG',
+              //   width: 150,
+              //   height: 150,
+              //   fit: BoxFit.cover,
+              // ),
+
               child: Image.network(
-                'https://cdn.pixabay.com/photo/2024/07/02/12/07/ai-generated-8867608_1280.png', 
+                'https://cdn.pixabay.com/photo/2024/07/02/12/07/ai-generated-8867608_1280.png',
                 width: 150,
                 height: 150,
                 fit: BoxFit.cover,
