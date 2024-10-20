@@ -13,6 +13,7 @@ class ColumnLayout extends StatelessWidget {
           padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
+            //mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const SizedBox(height: 50), // Top spacing
 
@@ -59,7 +60,7 @@ class ColumnLayout extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(vertical: 15.0),
                   minimumSize: const Size(300, 50),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(0),
+                    borderRadius: BorderRadius.circular(10),
                   ),
                   backgroundColor: Colors.black, // Button color
                 ),

@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screens/home_screen.dart';
+import 'package:flutter_application_1/screens/list_tile.dart';
+//import 'package:flutter_application_1/screens/list_tile.dart';
+//import 'package:flutter_application_1/screens/grid.dart';
 //import 'package:flutter_application_1/screens/home_screen.dart';
 // ignore: unused_import
-import 'package:flutter_application_1/screens/column_layout.dart';
+//import 'package:flutter_application_1/screens/column_layout.dart';
+//import 'package:flutter_application_1/screens/row_widget.dart';
 
 void main() {
   runApp(const MyApp());
 }
-
-
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -37,8 +40,12 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false, // Disable the debug banner
-      //home: const HomeScreen(),
-      home: const ColumnLayout(),
+      home: const HomeScreen(),
+      //home: const ColumnLayout(),
+      //home: const RowWidget(),
+      //home: const GridWidget(),
+      //home: const ListTileScreen(),
+      //home: const FlashSaleScreen(),
     );
   }
 }
