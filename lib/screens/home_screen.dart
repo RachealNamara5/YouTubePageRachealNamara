@@ -61,6 +61,78 @@
 //     );
 //   }
 // }
+// import 'package:flutter/material.dart';
+// import '../widgets/app_bar.dart';
+// import '../widgets/bottom_navigation_bar.dart';
+// import '../widgets/video_card.dart';
+
+// class HomeScreen extends StatelessWidget {
+//   const HomeScreen({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: CustomAppBar(), // Custom AppBar from widgets
+//       body: SingleChildScrollView(
+//         child: Column(
+//           crossAxisAlignment: CrossAxisAlignment.start,
+//           children: [
+//             // Categories Section
+//             Container(
+//               padding: EdgeInsets.all(8.0),
+//               height: 50,
+//               child: ListView(
+//                 scrollDirection: Axis.horizontal,
+//                 children: [
+//                   CategoryChip('All'),
+//                   CategoryChip('Music'),
+//                   CategoryChip('Gaming'),
+//                   CategoryChip('News'),
+//                 ],
+//               ),
+//             ),
+//             // Videos Section
+//             Padding(
+//               padding: const EdgeInsets.all(8.0),
+//               child: Column(
+//                 children: List.generate(5, (index) {
+//                   return Padding(
+//                     padding: const EdgeInsets.only(bottom: 8.0), // Space between cards
+//                     child: VideoCard(), // Create five VideoCards in a single column
+//                   );
+//                 }),
+//               ),
+//             ),
+//           ],
+//         ),
+//       ),
+//       bottomNavigationBar: CustomBottomNavigationBar(),
+//     );
+//   }
+// }
+
+// // Category Chip Widget
+// class CategoryChip extends StatelessWidget {
+//   final String category;
+
+//   CategoryChip(this.category);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Padding(
+//       padding: const EdgeInsets.symmetric(horizontal: 8.0),
+//       child: Chip(
+//         label: Text(
+//           category,
+//           style: TextStyle(color: Colors.white), // Set text color to white
+//         ),
+//         backgroundColor: Colors.black, // Set background color to black
+//         side: BorderSide(color: Colors.white), // Set border color to white
+//       ),
+//     );
+//   }
+// }
+
 import 'package:flutter/material.dart';
 import '../widgets/app_bar.dart';
 import '../widgets/bottom_navigation_bar.dart';
@@ -91,21 +163,19 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
-            // Videos Section
+            // Videos Section - Updated to a single column of videos
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: GridView.builder(
+              child: ListView.builder(
+                physics:
+                    NeverScrollableScrollPhysics(), // Disable scroll inside ListView
                 shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                itemCount: 10,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 10,
-                  mainAxisSpacing: 10,
-                  childAspectRatio: 16 / 9,
-                ),
+                itemCount: 5, // Number of video cards
                 itemBuilder: (context, index) {
-                  return VideoCard();
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: 8.0),
+                    child: VideoCard(), // Video cards displayed in one column
+                  );
                 },
               ),
             ),
@@ -117,18 +187,23 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-// Category Chip Widget
+// Define CategoryChip widget here
 class CategoryChip extends StatelessWidget {
   final String category;
+
   CategoryChip(this.category);
-  
+
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
       child: Chip(
-        label: Text(category),
-        backgroundColor: Colors.white,
+        label: Text(
+          category,
+          style: TextStyle(color: Colors.white), // Set text color to white
+        ),
+        backgroundColor: Colors.black, // Set background color to black
+        side: BorderSide(color: Colors.white), // Set border color to white
       ),
     );
   }
